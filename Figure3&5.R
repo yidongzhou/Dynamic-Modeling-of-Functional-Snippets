@@ -51,14 +51,18 @@ ggplot(data = df,
        aes(x = Age, y = sbmd, group = id, color = sex)
 ) +
   geom_line(data = ~subset(.x, pred == 1)) +
-  geom_line(data = ~subset(.x, pred == 2), stat = "smooth", span = 0.4, se = FALSE, alpha = 0.3) +
-  geom_line(data = ~subset(.x, pred == 3), stat = "smooth", span = 0.4, se = FALSE, color = 'black', linewidth = 0.7, linetype = "longdash") +
+  geom_line(data = ~subset(.x, pred == 2), stat = "smooth", span = 0.4, 
+            se = FALSE, alpha = 0.3) +
+  geom_line(data = ~subset(.x, pred == 3), stat = "smooth", span = 0.4, 
+            se = FALSE, color = 'black', linewidth = 0.7, linetype = "longdash") +
   geom_point(data = ~subset(.x, pred == 4), size = 2, color = 'black') +
-  geom_text(data = ~subset(.x, pred == 4), aes(x = Age + 0.5, y = sbmd - 0.05, label = sbmd), color = 'black') +
+  geom_text(data = ~subset(.x, pred == 4), aes(x = Age + 0.5, y = sbmd - 0.05, 
+                                               label = sbmd), color = 'black') +
   facet_grid(rows = vars(sex), cols = vars(group), scales = 'free_x') +
   scale_color_discrete(guide = 'none') +
   scale_x_continuous(name = 'Age (year)', breaks = seq(8, 26, 2)) +
-  scale_y_continuous(name = 'Spinal bone mineral density', breaks = seq(0.5, 1.5, 0.25), limits = c(0.5, 1.5)) + 
+  scale_y_continuous(name = 'Spinal bone mineral density', 
+                     breaks = seq(0.5, 1.5, 0.25), limits = c(0.5, 1.5)) + 
   theme_bw() +
   theme(text = element_text(size=20))
 dev.off()
@@ -72,23 +76,37 @@ dfc <- data.frame(Age = c(rep(agef, M), rep(agem, M), rep(agef, 3), rep(agem, 3)
                           t(apply(fitf$path, 2, quantile, c(0.05, 0.5, 0.95))), 
                           t(apply(fitm$path, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642), 
                  id = rep(1:(M * 4 + 12 + 4), 
-                          c(rep(length(agef), M), rep(length(agem), M), rep(length(agef), 3), rep(length(agem), 3), 1, 1, 
-                            rep(length(agef), M), rep(length(agem), M), rep(length(agef), 3), rep(length(agem), 3), 1, 1)), 
-                 group = factor(rep(c('LW', 'DM'), each = M * length(agef) + M * length(agem) + 3 * length(agef) + 3 * length(agem) + 1 + 1), levels = c('DM', 'LW')), 
-                 sex = rep(c('female', 'male', 'female', 'male', 'female', 'male', 'female', 'male', 'female', 'male', 'female', 'male'), c(M * length(agef), M * length(agem), 3 * length(agef), 3 * length(agem), 1, 1, M * length(agef), M * length(agem), 3 * length(agef), 3 * length(agem), 1, 1)), 
-                 pred = rep(rep(1:3, c(M * length(agef) + M * length(agem), 3 * length(agef) + 3 * length(agem), 1 + 1)), 2))
+                          c(rep(length(agef), M), rep(length(agem), M), 
+                            rep(length(agef), 3), rep(length(agem), 3), 1, 1, 
+                            rep(length(agef), M), rep(length(agem), M), 
+                            rep(length(agef), 3), rep(length(agem), 3), 1, 1)), 
+                 group = factor(rep(c('LW', 'DM'), each = M * length(agef) + 
+                                      M * length(agem) + 3 * length(agef) + 
+                                      3 * length(agem) + 1 + 1), levels = c('DM', 'LW')), 
+                 sex = rep(c('female', 'male', 'female', 'male', 
+                             'female', 'male', 'female', 'male', 
+                             'female', 'male', 'female', 'male'), 
+                           c(M * length(agef), M * length(agem), 3 * length(agef), 
+                             3 * length(agem), 1, 1, M * length(agef), M * length(agem), 
+                             3 * length(agef), 3 * length(agem), 1, 1)), 
+                 pred = rep(rep(1:3, c(M * length(agef) + M * length(agem), 
+                                       3 * length(agef) + 3 * length(agem), 1 + 1)), 2))
 pdf(file = "latex/img/bmdc.pdf", width = 12, height = 8)
 ggplot(data = dfc,
        aes(x = Age, y = sbmd, group = id, color = sex)
 ) +
-  geom_line(data = ~subset(.x, pred == 1), stat = "smooth", span = 0.4, se = FALSE, alpha = 0.3) +
-  geom_line(data = ~subset(.x, pred == 2), stat = "smooth", span = 0.4, se = FALSE, color = 'black', linewidth = 0.7, linetype = "longdash") +
+  geom_line(data = ~subset(.x, pred == 1), stat = "smooth", span = 0.4, 
+            se = FALSE, alpha = 0.3) +
+  geom_line(data = ~subset(.x, pred == 2), stat = "smooth", span = 0.4, 
+            se = FALSE, color = 'black', linewidth = 0.7, linetype = "longdash") +
   geom_point(data = ~subset(.x, pred == 3), size = 2, color = 'black') +
-  geom_text(data = ~subset(.x, pred == 3), aes(x = Age + 0.5, y = sbmd - 0.05, label = sbmd), color = 'black') +
+  geom_text(data = ~subset(.x, pred == 3), aes(x = Age + 0.5, y = sbmd - 0.05, 
+                                               label = sbmd), color = 'black') +
   facet_grid(rows = vars(sex), cols = vars(group), scales = 'free_x') +
   scale_color_discrete(guide = 'none') +
   scale_x_continuous(name = 'Age (year)', breaks = seq(8, 26, 2)) +
-  scale_y_continuous(name = 'Spinal bone mineral density', breaks = seq(0.5, 1.5, 0.25)) +#, limits = c(0.5, 1.5)
+  scale_y_continuous(name = 'Spinal bone mineral density', 
+                     breaks = seq(0.5, 1.5, 0.25), limits = c(0.5, 1.5)) +
   theme_bw() +
   theme(text = element_text(size=20))
 dev.off()
