@@ -47,7 +47,7 @@ for(m in 1:M){
 }
 xhat <- gdm(Ly = Ly, Lt = Lt, z0 = z0, tp = tgrid, optns = list(M = M, bm = bm))$path
 
-# load("data/ouplot.RData")
+load("data/ouplot.RData")
 pdf(file = "latex/img/ou.pdf", width = 12, height = 8)
 ggplot(data = data.frame(y = c(x, unlist(Ly), xtilde, xhat),
                          x = c(rep(tgrid, each = n), unlist(Lt), rep(rep(tgrid, each = M), 2)),
@@ -61,8 +61,8 @@ ggplot(data = data.frame(y = c(x, unlist(Ly), xtilde, xhat),
   geom_line(data = ~subset(.x, class == "simulated snippets"), linewidth = 0.5, alpha = 0.5) +
   geom_line(data = ~subset(.x, class %in% c("simulated sample paths", "true sample paths", 
                                             "estimated sample paths")), stat = "smooth", 
-            span = 0.25, se = FALSE, alpha = 0.5, size = 0.5) +
-  scale_x_continuous(name = "Time", breaks = seq(0, tau, by = 0.2)) +
+            span = 0.25, se = FALSE, alpha = 0.5, linewidth = 0.5) +
+  scale_x_continuous(name = "Time", breaks = seq(0, 1, by = 0.2)) +
   scale_y_continuous(name = "Ornstein-Uhlenbeck process", breaks = seq(-8, 6, by = 2)) +
   guides(color = 'none') +
   facet_wrap(vars(class)) +

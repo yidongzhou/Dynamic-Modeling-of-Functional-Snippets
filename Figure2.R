@@ -16,7 +16,7 @@ bw2 <- bw1
 agem <- seq(12, 72, 4)
 z0m <- c(63.0, 12)# 20: 65.1; 36: 80.3
 fitm <- ldm(Ly = Ly2, Lt = Lt2, z0 = z0m, tp = agem, optns = list(M = M, bw1 = bw1, bw2 = bw2))
-# load("data/ngdplot.RData")
+load("data/ngdplot.RData")
 df <- data.frame(Age = c(unlist(Lt1), unlist(Lt2), rep(agef, M), rep(agem, M), 
                          rep(agef, 3), rep(agem, 3), 4, 12, 20), 
                  Height = c(unlist(Ly1), unlist(Ly2), t(fitf$path), t(fitm$path), 
@@ -55,7 +55,6 @@ ggplot(data = df,
                                                label = Height), color = 'black') +
   facet_grid(rows = vars(sex), cols = vars(group), scales = 'free_x') +
   scale_color_discrete(guide = 'none') +
-  # scale_alpha_continuous(guide = 'none') +
   scale_x_continuous(name = 'Age (month)', breaks = seq(0, 72, 8)) +
   scale_y_continuous(name = 'Height (cm)', breaks = seq(50, 120, 10), 
                      limits = c(50, 120)) + 

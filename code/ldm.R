@@ -1,6 +1,8 @@
 #' @title Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets
-#' @description Dynamic modeling of sparse longitudinal data and functional
-#' snippets with stochastic differential equations.
+#' @description This function performs dynamic modeling of sparse longitudinal 
+#' data and functional snippets using stochastic differential equations. 
+#' The method employs local linear regression to estimate both the conditional 
+#' mean and the conditional variance.
 #' @param Ly a list of \eqn{n} vectors containing the observed values
 #' for each individual.
 #' @param Lt a list of \eqn{n} vectors containing the observation time points

@@ -23,7 +23,7 @@ fitm <- ldm(Ly2, Lt2, z0m, agem, optns = list(M = M, bw1 = bw1, bw2 = bw2,
                                               regular = FALSE, bm = bmm))
 fitspm <- sp(Ly2, Lt2, bw = 1, domain = c(9, 24), newt = agem, x0 = z0m[1], 
              M = M, bm = bmm)# Lin and Wang (2022) JASA
-# load("data/bmdplot.RData")
+load("data/bmdplot.RData")
 df <- data.frame(Age = c(unlist(Lt1), unlist(Lt2), rep(agef, M), 
                          rep(agem, M), rep(agef, 3), rep(agem, 3), 10.1, 9), 
                  sbmd = c(unlist(Ly1), unlist(Ly2), t(fitf$path), t(fitm$path), 
@@ -106,7 +106,7 @@ ggplot(data = dfc,
   scale_color_discrete(guide = 'none') +
   scale_x_continuous(name = 'Age (year)', breaks = seq(8, 26, 2)) +
   scale_y_continuous(name = 'Spinal bone mineral density', 
-                     breaks = seq(0.5, 1.5, 0.25), limits = c(0.5, 1.5)) +
+                     breaks = seq(0.5, 1.5, 0.25)) +
   theme_bw() +
   theme(text = element_text(size=20))
 dev.off()

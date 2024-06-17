@@ -1,6 +1,6 @@
 library(ggplot2)
 library(fdapace)
-library(fda) # Berkeley growth study data
+library(fda)# Berkeley growth study data
 source("code/ldm.R")
 source("code/kerFctn.R")
 
@@ -48,7 +48,7 @@ for(i in 1:n2) {
   Ly2[[i]] <- male[c(k, k+1), i]
 }
 
-# load("data/bgd.RData")
+load("data/bgd.RData")
 M <- 300
 bw1 <- c(20, 0.5)
 bw2 <- bw1
@@ -57,7 +57,7 @@ z0f <- cbind(sample(female[1, ], M), 1)
 z0m <- cbind(sample(male[1, ], M), 1)
 fitf <- ldm(Ly1, Lt1, z0f, age, optns = list(M = M, bw1 = bw1, bw2 = bw2))
 fitm <- ldm(Ly2, Lt2, z0m, age, optns = list(M = M, bw1 = bw1, bw2 = bw2))
-# load('data/bgdplot.RData')
+load('data/bgdplot.RData')
 df <- data.frame(Age = c(rep(age, n1 + n2), unlist(Lt1), unlist(Lt2), 
                          rep(age, M + M)), 
                  Height = c(female, male, unlist(Ly1), unlist(Ly2), 
