@@ -7,77 +7,57 @@ This Github repo contains the data and codes necessary to replicate
 
 The folder structure of this repo is as follows:
 
-| folder | usage                                                                                    |
-|:-------|:-----------------------------------------------------------------------------------------|
-| code   | R scripts for the proposed approach                                                      |
-| data   | Data files                                                                               |
-| mcfda  | R scripts for Lin and Wang (2022 JASA), adapted from https://github.com/linulysses/mcfda |
-| sim    | R scripts for simulations                                                                |
+| Folder      | Usage                                                                                    |
+|:------------|:-----------------------------------------------------------------------------------------|
+| code        | R scripts for the proposed approach                                                      |
+| data        | Data files                                                                               |
+| mcfda       | R scripts for Lin and Wang (2022 JASA), adapted from https://github.com/linulysses/mcfda |
+| sim         | R scripts for simulations                                                                |
+| Figure1.R   | R script to replicate Figure 1                                                           |
+| Figure2.R   | R script to replicate Figure 2                                                           |
+| Figure3&5.R | R script to replicate Figure 3 and Figure 5                                              |
+| Figure4.R   | R script to replicate Figure 4                                                           |
 
-## Data Files
+## code
+
+R scripts implementing the proposed dynamic modeling approach.
+
+| Data files | Usage                                                                   |
+|:-----------|:------------------------------------------------------------------------|
+| gdm.R      | Dynamic modeling of functional snippets with multiple linear regression |
+| kerFctn.R  | Kernel function                                                         |
+| ldm.R      | Dynamic modeling of functional snippets with local linear regression    |
+
+## data
 
 Zhou and Müller (2024+) uses the following datasets, which are based on
 West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
 
-| Data.files    | Details                                                          |
-|:--------------|:-----------------------------------------------------------------|
-| bgd.RData     | NSW experimental data, used in LaLonde (1986)                    |
-| bgdplot.RData | Subset of NSW experimental data, used in Dehejia & Wahba (1999)  |
-| bmd.RData     | CPS-SSA-1 controls, used in both papers                          |
-| bmdplot.RData | PSID-1 controls, used in both papers                             |
-| ngd.RData     | Data of lottery winners, used in Imbens, Rubin & Sacerdote (201) |
-| ngdplot.RData | Reconstructed NSW AFDC female samples                            |
-| ouplot.RData  | Reconstructed NSW AFDC female samples                            |
+| Data files    | Details                                                                                       |
+|:--------------|:----------------------------------------------------------------------------------------------|
+| bgd.RData     | Berkeley growth study data (Tuddenham and Snyder 1954), also available in the R package `fda` |
+| bgdplot.RData | Data to replicate Figure 4                                                                    |
+| bmd.RData     | Spinal bone mineral density data (Bachrach et al. 1999)                                       |
+| bmdplot.RData | Data to replicate Figure 3 and Figure 5                                                       |
+| ngd.RData     | Nepal growth study data (West Jr et al. 1997)                                                 |
+| ngdplot.RData | Data to replicate Figure 2                                                                    |
+| ouplot.RData  | Data to replicate Figure 1                                                                    |
 
-## R Scripts
+## sim
 
-To replicate all findings, set the directory to the root folder of the
-replications files and execute `master.R`. Below are explanations for
-the usage of each R script:
+R scripts to replicate simulation results in subsection 5.2 of the main text and Section S.5 of the Supplementary Material.
 
-| Data.files          | Usage                                                  |
-|:--------------------|:-------------------------------------------------------|
-| master.R            | Install necessary R packages and excute all R scripts. |
-| functions_est.R     | Store functions for estimation                         |
-| functions_plot.R    | Store functions for making plots                       |
-| lalonde1_prepare.R  | Preprocess LaLonde datasets                            |
-| lalonde2_trim.R     | Trim datasets to improve overlap                       |
-| lalonde3_overlap.R  | Visualize overlap in propensity scores                 |
-| lalonde4_estimate.R | Estimate the ATT                                       |
-| lalonde5_catt.R     | Estimate and visualize CATT                            |
-| lalonde6_qte.R      | Estimate and visualize quantile treatment effects      |
-| laldone7_sens.R     | Conduct sensitivity analyses                           |
-| lalonde8_lcs.R      | Analyze the female samples by Calonico & Smith (2017)  |
-| irs1_est.R          | Estimate the ATT using the IRS data                    |
-| irs2_big.R          | Additional analyses for winning big prizes             |
-| irs3_small.R        | Additional analyses for winning small prizes           |
-
-## Install R Packages
-
-For successful replication, the following R packages need to be
-installed:
-
-``` r
-# required packages
-packages <- c("haven", "labelled", "Matching", "grf", "sensemakr", "qte",
-    "estimatr", "CBPS", "hbal", "DoubleML", "mlr3learners", "fixest", "ggplot2")
-
-# install packages
-install_all <- function(packages) {
-  installed_pkgs <- installed.packages()[, "Package"]
-  for (pkg in packages) {
-    if (!pkg %in% installed_pkgs) {
-      install.packages(pkg)
-    }
-  }
-}
-install_all(packages)
-```
+| Data files    | Details                                                                                |
+|:--------------|:---------------------------------------------------------------------------------------|
+| gbm.R  | Simulation for the geometric Brownian motion                                                  |
+| hl.R   | Simulation for the Ho-Lee model                                                               |
+| ou.R   | Simulation for the Ornstein-Uhlenbeck process                                                 |
+| oucb.R | Simulation for uncertainty quantification using the Ornstein-Uhlenbeck process                |
+| our.R  | Simulation for the case of five measurements per subject using the Ornstein-Uhlenbeck process |
 
 ## Report Errors
 
-To report errors, please contact <ydzhou@ucdavis.edu>. Comments and
-suggestions are welcome.
+To report errors, please contact <ydzhou@ucdavis.edu>. Comments and suggestions are welcome.
 
 ## References
 
