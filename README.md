@@ -1,5 +1,4 @@
 # Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations
-================
 
 This Github repo contains the data and codes necessary to replicate
 **Zhou and Müller (2024+)**: “Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations.” [\[arXiv\]](https://arxiv.org/pdf/2306.10221)
@@ -20,15 +19,15 @@ The folder structure of this repo is as follows:
 Zhou and Müller (2024+) uses the following datasets, which are based on
 West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
 
-| Data.files    | Details                                                          | File_Type | Experimental |
-|:--------------|:-----------------------------------------------------------------|:----------|:-------------|
-| bgd.RData     | NSW experimental data, used in LaLonde (1986)                    | Stata     | Yes          |
-| bgdplot.RData | Subset of NSW experimental data, used in Dehejia & Wahba (1999)  | Stata     | Yes          |
-| bmd.RData     | CPS-SSA-1 controls, used in both papers                          | Stata     | No           |
-| bmdplot.RData | PSID-1 controls, used in both papers                             | Stata     | No           |
-| ngd.RData     | Data of lottery winners, used in Imbens, Rubin & Sacerdote (201) | R         | No           |
-| ngdplot.RData | Reconstructed NSW AFDC female samples                            | Stata     | Both         |
-| ouplot.RData  | Reconstructed NSW AFDC female samples                            | Stata     | Both         |
+| Data.files    | Details                                                          |
+|:--------------|:-----------------------------------------------------------------|
+| bgd.RData     | NSW experimental data, used in LaLonde (1986)                    |
+| bgdplot.RData | Subset of NSW experimental data, used in Dehejia & Wahba (1999)  |
+| bmd.RData     | CPS-SSA-1 controls, used in both papers                          |
+| bmdplot.RData | PSID-1 controls, used in both papers                             |
+| ngd.RData     | Data of lottery winners, used in Imbens, Rubin & Sacerdote (201) |
+| ngdplot.RData | Reconstructed NSW AFDC female samples                            |
+| ouplot.RData  | Reconstructed NSW AFDC female samples                            |
 
 ## R Scripts
 
@@ -77,7 +76,7 @@ install_all(packages)
 
 ## Report Errors
 
-To report errors, please contact <yiqingxu@stanford.edu>. Comments and
+To report errors, please contact <ydzhou@ucdavis.edu>. Comments and
 suggestions are welcome.
 
 ## References
@@ -85,44 +84,27 @@ suggestions are welcome.
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
 
+<div id="ref-imbensrubinsacerdote" class="csl-entry">
+
+Bachrach, L. K., Hastie, T., Wang, M.-C., Narasimhan, B. and Marcus, R. (1999) Bone mineral acquisition in healthy Asian, Hispanic, Black, and Caucasian youth: a longitudinal study. *Journal of Clinical Endocrinology & Metabolism*, **84**, 4702–4712.
+
+</div>
+
 <div id="ref-calonico2017women" class="csl-entry">
 
-Calónico, Sebastian, and Jeffrey Smith. 2017. “The Women of the National
-Supported Work Demonstration.” *Journal of Labor Economics* 35 (S1):
-S65–97.
+Tuddenham, R. D. and Snyder, M. M. (1954) Physical growth of California boys and girls from birth to eighteen years. *University of California Publications in Child Development*, **1**, 183–364.
 
 </div>
 
 <div id="ref-dehejiawahba" class="csl-entry">
 
-Dehejia, Rajeev H, and Sadek Wahba. 1999. “Causal Effects in
-Nonexperimental Studies: Reevaluating the Evaluation of Training
-Programs.” *Journal of the American Statistical Association* 94 (448):
-1053–62.
-
-</div>
-
-<div id="ref-imbensrubinsacerdote" class="csl-entry">
-
-Imbens, Guido W, Donald B Rubin, and Bruce I Sacerdote. 2001.
-“Estimating the Effect of Unearned Income on Labor Earnings, Savings,
-and Consumption: Evidence from a Survey of Lottery Players.” *American
-Economic Review* 91 (4): 778–94.
+West Jr, K. P., LeClerq, S. C., Shrestha, S. R., Wu, L. S.-F., Pradhan, E. K., Khatry, S. K., Katz, J., Adhikari, R. and Sommer, A. (1997) Effects of vitamin A on growth of vitamin A-deficient children: field studies in Nepal. *Journal of Nutrition*, **127**, 1957–1965.
 
 </div>
 
 <div id="ref-imbensxu" class="csl-entry">
 
-Imbens, Guido W, and Yiqing Xu. 2024. “LaLonde (1986) After Nearly Four
-Decades: Lessons Learned.” arXiv:2406.00827.
-
-</div>
-
-<div id="ref-LaLonde" class="csl-entry">
-
-LaLonde, Robert J. 1986. “Evaluating the Econometric Evaluations of
-Training Programs with Experimental Data.” *The American Economic
-Review* 76 (4): 604–20.
+Zhou, Y. and Müller, H.G., 2023. Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations. arXiv preprint arXiv:2306.10221.
 
 </div>
 
