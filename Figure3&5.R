@@ -67,31 +67,42 @@ ggplot(data = df,
   theme(text = element_text(size=20))
 dev.off()
 
+nodef <- read.table('node/bmd/bmdf.txt')
+nodem <- read.table('node/bmd/bmdm.txt')
+nodef <- nodef[sample(1:nrow(nodef), M), ]
+nodem <- nodem[sample(1:nrow(nodem), M), ]
 dfc <- data.frame(Age = c(rep(agef, M), rep(agem, M), rep(agef, 3), rep(agem, 3), 10.1, 9, 
-                         rep(agef, M), rep(agem, M), rep(agef, 3), rep(agem, 3), 10.1, 9), 
-                 sbmd = c(t(fitspf$path), t(fitspm$path), 
-                          t(apply(fitspf$path, 2, quantile, c(0.05, 0.5, 0.95))), 
-                          t(apply(fitspm$path, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642,
-                          t(fitf$path), t(fitm$path), 
-                          t(apply(fitf$path, 2, quantile, c(0.05, 0.5, 0.95))), 
-                          t(apply(fitm$path, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642), 
-                 id = rep(1:(M * 4 + 12 + 4), 
-                          c(rep(length(agef), M), rep(length(agem), M), 
-                            rep(length(agef), 3), rep(length(agem), 3), 1, 1, 
-                            rep(length(agef), M), rep(length(agem), M), 
-                            rep(length(agef), 3), rep(length(agem), 3), 1, 1)), 
-                 group = factor(rep(c('LW', 'DM'), each = M * length(agef) + 
-                                      M * length(agem) + 3 * length(agef) + 
-                                      3 * length(agem) + 1 + 1), levels = c('DM', 'LW')), 
-                 sex = rep(c('female', 'male', 'female', 'male', 
-                             'female', 'male', 'female', 'male', 
-                             'female', 'male', 'female', 'male'), 
-                           c(M * length(agef), M * length(agem), 3 * length(agef), 
-                             3 * length(agem), 1, 1, M * length(agef), M * length(agem), 
-                             3 * length(agef), 3 * length(agem), 1, 1)), 
-                 pred = rep(rep(1:3, c(M * length(agef) + M * length(agem), 
-                                       3 * length(agef) + 3 * length(agem), 1 + 1)), 2))
-pdf(file = "latex/img/bmdc.pdf", width = 12, height = 8)
+                          rep(agef, M), rep(agem, M), rep(agef, 3), rep(agem, 3), 10.1, 9,
+                          rep(agef, M), rep(agem, M), rep(agef, 3), rep(agem, 3), 10.1, 9), 
+                  sbmd = c(t(fitspf$path), t(fitspm$path), 
+                           t(apply(fitspf$path, 2, quantile, c(0.05, 0.5, 0.95))), 
+                           t(apply(fitspm$path, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642,
+                           unlist(t(nodef)), unlist(t(nodem)),
+                           t(apply(nodef, 2, quantile, c(0.05, 0.5, 0.95))), 
+                           t(apply(nodem, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642,
+                           t(fitf$path), t(fitm$path), 
+                           t(apply(fitf$path, 2, quantile, c(0.05, 0.5, 0.95))), 
+                           t(apply(fitm$path, 2, quantile, c(0.05, 0.5, 0.95))), 0.778, 0.642), 
+                  id = rep(1:(M * 6 + 18 + 6), 
+                           c(rep(length(agef), M), rep(length(agem), M), 
+                             rep(length(agef), 3), rep(length(agem), 3), 1, 1, 
+                             rep(length(agef), M), rep(length(agem), M), 
+                             rep(length(agef), 3), rep(length(agem), 3), 1, 1,
+                             rep(length(agef), M), rep(length(agem), M), 
+                             rep(length(agef), 3), rep(length(agem), 3), 1, 1)), 
+                  group = factor(rep(c('LW', 'Neural ODE', 'DM'), each = M * length(agef) + 
+                                       M * length(agem) + 3 * length(agef) + 
+                                       3 * length(agem) + 1 + 1), levels = c('DM', 'LW', 'Neural ODE')), 
+                  sex = rep(c('female', 'male', 'female', 'male', 'female', 'male', 
+                              'female', 'male', 'female', 'male', 'female', 'male', 
+                              'female', 'male', 'female', 'male', 'female', 'male'), 
+                            c(M * length(agef), M * length(agem), 3 * length(agef), 
+                              3 * length(agem), 1, 1, M * length(agef), M * length(agem), 
+                              3 * length(agef), 3 * length(agem), 1, 1, M * length(agef), 
+                              M * length(agem), 3 * length(agef), 3 * length(agem), 1, 1)), 
+                  pred = rep(rep(1:3, c(M * length(agef) + M * length(agem), 
+                                        3 * length(agef) + 3 * length(agem), 1 + 1)), 3))
+pdf(file = "latex/img/bmdc.pdf", width = 13.5, height = 6)
 ggplot(data = dfc,
        aes(x = Age, y = sbmd, group = id, color = sex)
 ) +

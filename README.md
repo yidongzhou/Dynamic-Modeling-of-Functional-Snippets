@@ -7,16 +7,17 @@ This Github repo contains the data and codes necessary to replicate
 
 The folder structure of this repo is as follows:
 
-| Folder      | Usage                                                                                    |
-|:------------|:-----------------------------------------------------------------------------------------|
-| code        | R scripts for the proposed approach                                                      |
-| data        | Data files                                                                               |
-| mcfda       | R scripts for Lin and Wang (2022 JASA), adapted from https://github.com/linulysses/mcfda |
-| sim         | R scripts for simulations                                                                |
-| Figure1.R   | R script to replicate Figure 1                                                           |
-| Figure2.R   | R script to replicate Figure 2                                                           |
-| Figure3&5.R | R script to replicate Figure 3 and Figure 5                                              |
-| Figure4.R   | R script to replicate Figure 4                                                           |
+| Folder      | Usage                                                                                                                                              |
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+| code        | R scripts for the proposed approach                                                                                                                |
+| data        | Data files                                                                                                                                         |
+| mcfda       | R scripts for Lin and Wang (2022 JASA), adapted from https://github.com/linulysses/mcfda                                                           |
+| node        | Python scripts for neural ordinary differential equations, adapted from https://github.com/rtqichen/torchdiffeq/blob/master/examples/latent_ode.py |
+| sim         | R scripts for simulations                                                                                                                          |
+| Figure1.R   | R script to replicate Figure 1                                                                                                                     |
+| Figure2.R   | R script to replicate Figure 2                                                                                                                     |
+| Figure3&5.R | R script to replicate Figure 3 and Figure 5                                                                                                        |
+| Figure4.R   | R script to replicate Figure 4                                                                                                                     |
 
 ## code
 
@@ -30,8 +31,7 @@ R scripts implementing the proposed dynamic modeling approach.
 
 ## data
 
-Zhou and Müller (2024+) uses the following datasets, which are based on
-West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
+Zhou and Müller (2024+) uses the following datasets, which are based on West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
 
 | Data files    | Details                                                                                       |
 |:--------------|:----------------------------------------------------------------------------------------------|
@@ -43,12 +43,22 @@ West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
 | ngdplot.RData | Data to replicate Figure 2                                                                    |
 | ouplot.RData  | Data to replicate Figure 1                                                                    |
 
+## node
+
+Python scripts to replicate simulation results in subsection S.5.4 of the Supplementary Material.
+
+| Data files       | Details                                                                                              |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|
+| latentODE_bmd.py | Spinal bone mineral density data (Bachrach et al. 1999) using neural ordinary differential equations |
+| latentODE_sim.py | Simulation using neural ordinary differential equations                                              |
+
 ## sim
 
 R scripts to replicate simulation results in subsection 5.2 of the main text and Section S.5 of the Supplementary Material.
 
 | Data files    | Details                                                                                |
 |:--------------|:---------------------------------------------------------------------------------------|
+| arma.R | Simulation using the autoregressive integrated moving average model                           |
 | gbm.R  | Simulation for the geometric Brownian motion                                                  |
 | hl.R   | Simulation for the Ho-Lee model                                                               |
 | ou.R   | Simulation for the Ornstein-Uhlenbeck process                                                 |
