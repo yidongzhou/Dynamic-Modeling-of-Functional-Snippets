@@ -1,7 +1,7 @@
 # Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations
 
 This Github repo contains the data and codes necessary to replicate
-**Zhou and Müller (2024+)**: “Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations.” [\[arXiv\]](https://arxiv.org/pdf/2306.10221)
+**Zhou and Müller (2024)**: “Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations.” [\[arXiv\]](https://arxiv.org/pdf/2306.10221)
 
 ## Folder Structure
 
@@ -31,7 +31,7 @@ R scripts implementing the proposed dynamic modeling approach.
 
 ## data
 
-Zhou and Müller (2024+) uses the following datasets, which are based on West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
+Zhou and Müller (2024) uses the following datasets, which are based on West Jr et al. (1997), Bachrach et al. (1999), and Tuddenham and Snyder (1954).
 
 | Data files    | Details                                                                                       |
 |:--------------|:----------------------------------------------------------------------------------------------|
@@ -94,7 +94,7 @@ West Jr, K. P., LeClerq, S. C., Shrestha, S. R., Wu, L. S.-F., Pradhan, E. K., K
 
 <div id="ref-imbensxu" class="csl-entry">
 
-Zhou, Y. and Müller, H.G., 2023. Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations. arXiv preprint arXiv:2306.10221.
+Zhou, Y. and Müller, H.G., 2024. Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations. Journal of the Royal Statistical Society: Series B, just accepted.
 
 </div>
 
