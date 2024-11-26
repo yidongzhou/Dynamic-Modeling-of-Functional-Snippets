@@ -1,7 +1,7 @@
 # Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations
 
 This Github repo contains the data and codes necessary to replicate
-**Zhou and Müller (2024)**: “Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations.” [\[arXiv\]](https://arxiv.org/pdf/2306.10221)
+**Zhou and Müller (2024)**: “Dynamic Modeling of Sparse Longitudinal Data and Functional Snippets With Stochastic Differential Equations.” Journal of the Royal Statistical Society: Series B, just accepted
 
 ## Folder Structure
 
